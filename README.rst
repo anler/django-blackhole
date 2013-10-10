@@ -9,8 +9,8 @@ Features
 - Design your template without having the corresponding view created.
 - Pass data to your template via the url.
 
-Example
--------
+Examples
+--------
 
 In your urls.py:
 
@@ -23,7 +23,7 @@ With that in place you should be able to access the url: `/_blackhole/templates/
 
 Let's say you have the following template:
 
-.. code-block::
+.. code-block:: bash
 
    myapp/
      templates/

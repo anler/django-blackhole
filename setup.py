@@ -19,12 +19,13 @@ except IOError:
 
 
 setup(name="django-blackhole",
-      version='0.1.2',
+      version='0.1.3',
       description=__doc__,
       long_description=README,
       author="ikame",
       author_email="anler86@gmail.com",
       url="https://github.com/ikame/django-blackhole",
+      packages = ["blackhole"],
       license="MIT",
       keywords="django debug views templates",
       classifiers=[

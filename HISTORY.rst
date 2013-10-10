@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.3 (Thu 10 Oct 2013 10:58:08 AM CEST)
+++++++++++++++++++++++++++++++++++++++++
+
+- Changing setup.py to include the main package
+
 0.1.2 (Thu 10 Oct 2013 10:58:08 AM CEST)
 ++++++++++++++++++++++++++++++++++++++++
 

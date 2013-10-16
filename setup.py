@@ -18,7 +18,7 @@ except IOError:
 
 
 setup(name="django-blackhole",
-      version='0.1.4',
+      version='0.1.5',
       description=__doc__,
       long_description=README,
       author="ikame",

@@ -76,5 +76,5 @@ def view_template(request, name):
 def view_raw_template(request, *args, **kwargs):
     """Render the template named `name` and return the response as `text/plain`"""
     response = view_template(request, *args, **kwargs)
-    response["Content-Type"] = "text/plain"
+    response["Content-Type"] = "text/plain; charset=utf-8"
     return response

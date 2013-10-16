@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.5 (Wed 16 Oct 2013 04:52:02 PM CEST)
+++++++++++++++++++++++++++++++++++++++++
+
+- Updating docs
+- Returning raw template as utf-8
 
 0.1.5 (Wed 16 Oct 2013 04:41:47 PM CEST)
 ++++++++++++++++++++++++++++++++++++++++

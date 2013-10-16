@@ -5,7 +5,6 @@ import os
 import sys
 
 from setuptools import setup
-from setuptools.command.test import test as TestCommand
 
 py_version = sys.version_info[:2]
 
@@ -19,7 +18,7 @@ except IOError:
 
 
 setup(name="django-blackhole",
-      version='0.1.3',
+      version='0.1.4',
       description=__doc__,
       long_description=README,
       author="ikame",

@@ -1,5 +1,5 @@
 from django import http
-from django.template import Template, RequestContext
+from django.template import RequestContext
 from django.template.loader import get_template
 
 
@@ -25,7 +25,7 @@ def set_nested_keys(container, keys, value):
 
     Example:
         >>> c = {}
-        >>> set_nested_keys(c, ['user', 'name'], 'my name'])
+        >>> set_nested_keys(c, ['user', 'name'], 'my name')
         >>> c
         {'user': {'name': 'my name'}}
     """
@@ -70,3 +70,11 @@ def view_template(request, name):
     body = tpl.render(RequestContext(request, data))
 
     return http.HttpResponse(body)
+
+
+@patch_reverse
+def view_raw_template(request, *args, **kwargs):
+    """Render the template named `name` and return the response as `text/plain`"""
+    response = view_template(request, *args, **kwargs)
+    response["Content-Type"] = "text/plain"
+    return response

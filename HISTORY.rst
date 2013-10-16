@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.4 (Wed 16 Oct 2013 04:34:30 PM CEST)
+++++++++++++++++++++++++++++++++++++++++
+
+- Using the new url `/templates/<template name>/raw` you are able to see
+the template in raw (Content type: text/plain) format.
+
 0.1.3 (Thu 10 Oct 2013 10:58:08 AM CEST)
 ++++++++++++++++++++++++++++++++++++++++
 

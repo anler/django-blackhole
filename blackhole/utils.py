@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
+import os
+import json
+
 from collections import defaultdict
 
 from django.template.response import TemplateResponse
+from django.db.models import get_apps
 from django.utils.six import iteritems
 
 
@@ -67,6 +71,32 @@ def get_options(data):
     return defaultdict(str, {k: v for k, v in iteritems(data) if is_option(k)})
 
 
+def get_fixture_path(fixture):
+    app_module_paths = []
+    for app in get_apps():
+        if hasattr(app, '__path__'):
+            for path in app.__path__:
+                app_module_paths.append(path)
+        else:
+            app_module_paths.append(app.__file__)
+
+    app_fixtures = (os.path.join(os.path.dirname(path), 'fixtures') for path in app_module_paths)
+    join, isfile = os.path.join, os.path.isfile
+    for fixtures_path in app_fixtures:
+        abs_fixture_path = "{}.json".format(join(fixtures_path, fixture))
+        if isfile(abs_fixture_path):
+            return abs_fixture_path
+
+
+def load_fixture(fixture):
+    data = {}
+    if fixture:
+        fixture_path = get_fixture_path(fixture)
+        if fixture_path:
+            data.update(json.load(open(fixture_path)))
+    return data
+
+
 def get_template_response(request, template_name, content_type=None, charset=None):
     """Get a template content rendered with data from request return a response.
 
@@ -79,9 +109,10 @@ def get_template_response(request, template_name, content_type=None, charset=Non
 
     :return: :class:`~django.template.response.TemplateResponse` instance.
     """
-    data = nest_querydict(request.GET)
-
     default_options = get_options(request.GET)
+    data = nest_querydict(request.GET)
+    data.update(load_fixture(default_options['_fixture']))
+
     if content_type is None:
         content_type = default_options['_mime']
     if charset is None:

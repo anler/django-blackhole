@@ -3,6 +3,15 @@
 History
 -------
 
+0.1.7 (Tue 29 Oct 2013 08:07:50 PM CET)
++++++++++++++++++++++++++++++++++++++++
+
+- Fixtures support. Now you can specify a fixture via the url and the data in
+that fixture is available in the context
+- Adding support for _mime and _charset GET param options to set response's
+mimetype and charset
+- Adding docs
+
 0.1.5 (Wed 16 Oct 2013 04:52:02 PM CEST)
 ++++++++++++++++++++++++++++++++++++++++
 

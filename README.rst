@@ -18,6 +18,7 @@ Tutorial
 In order to start using this plugin, you need to:
 
 1. Add application to your INSTALLED_APPS:
+
 .. code-block:: python
 
    INSTALLED_APPS += ('blackhole',)

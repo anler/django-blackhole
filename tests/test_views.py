@@ -35,6 +35,13 @@ def test_view_template_with_mime(client):
     assert 'text/csv; charset=utf-8' == response['content-type']
 
 
+def test_view_template_with_charset(client):
+    response = client.get('/templates/template.html/?_charset=utf-16')
+
+    assert '<p>template.html</p>\n' == response.content
+    assert 'text/html; charset=utf-16' == response['content-type']
+
+
 def test_view_template_with_fixture(client):
     response = client.get('/templates/template.html/?_fixture=test_fixture')
 

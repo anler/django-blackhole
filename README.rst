@@ -28,7 +28,7 @@ In order to start using this plugin, you need to:
 .. code-block:: python
 
    if settings.DEBUG:
-       urlpatterns += patterns('', ('^_blackhole/', include('blackhole.urls'))
+       urlpatterns += patterns('', ('^_blackhole/', include('blackhole.urls')))
 
 With that in place you should be able to access the url:
 
